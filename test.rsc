@@ -47,9 +47,9 @@ add action=masquerade chain=srcnat out-interface=ether2
 /ip route add distance=1 gateway=188.244.20.56 dst-address=188.244.x.x/23 routing-mark=ISP1-BYOD
 
 
-
+#####check for 
 
 #experimental need to check how goes traffic to external IP
 :local RSGWDistance [/ip route get [find comment="WAN2"] distance];
-:if ( $RSGWDistance = 1 ) do={ :put [/ip firewall nat set [find comment="BYOD"] chain=srcnat src-address=10.135.20.0/24 action=src-nat to-addresses=93.115.143.154 out-interface=STARNET]};
-:if ( $RSGWDistance = 2 ) do={ :put [/ip firewall nat set [find comment="BYOD"] chain=srcnat src-address=10.135.20.0/24 action=src-nat to-addresses=188.244.20.57 out-interface=MTC]};
+:if ( $RSGWDistance = 1 ) do={ :put [/ip firewall nat set [find comment="BYOD"] chain=srcnat src-address=10.135.20.0/24 action=src-nat to-addresses=93.x.x.x. out-interface=STARNET]};
+:if ( $RSGWDistance = 2 ) do={ :put [/ip firewall nat set [find comment="BYOD"] chain=srcnat src-address=10.135.20.0/24 action=src-nat to-addresses=188.x..x.x out-interface=MTC]};
